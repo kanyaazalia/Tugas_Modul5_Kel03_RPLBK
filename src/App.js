@@ -5,7 +5,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { List, Paper, Typography,  } from "@mui/material";
+import { List, Paper, Typography } from "@mui/material";
 import Card from "./components/Card.js";
 
 const BASE_API_URL = `https://jsonplaceholder.typicode.com`;
