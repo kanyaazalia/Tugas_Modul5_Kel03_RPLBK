@@ -31,6 +31,26 @@ function App() {
     getPosts();
   }, []);
 
+  const handleDeletePost = (id, idx) => {
+    async function delPost() {
+      await axios
+        .delete(`${BASE_API_URL}/posts/${id}`)
+        .then((res) => {
+          let arr = posts;
+          if (idx !== -1) {
+            arr.splice(idx, 1)
+          }
+          setPosts([...arr]);
+        })
+        .catch((error) => {
+          console.log(error);
+          window.alert(error);
+        })
+    }
+
+    delPost();
+  };
+
   return (
     <div className="App">
       <div className="list-container">
@@ -40,11 +60,12 @@ function App() {
         
         <Paper elevation={2} style={{ maxHeight: "600px", overflow: "auto" }}>
           <List>
-            {posts.map((d) => (
+            {posts.map((d, idx) => (
               <Card
                 key={d.id}
                 title={`${d.title}`}
                 body={`${d.body}`}
+                onDelete={() => handleDeletePost(d.id, idx)}
               />
             ))}
           </List>
