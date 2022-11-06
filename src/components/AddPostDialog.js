@@ -11,7 +11,7 @@ import {
   
   const BASE_API_URL = `https://jsonplaceholder.typicode.com`;
   
-  function AddUserDialog({ open, onClose, users, setUsers }) {
+  function AddPostDialog({ open, onClose, posts, setPosts }) {
     const [title, setName] = useState("");
     const [body, setJob] = useState("");
   
@@ -22,7 +22,7 @@ import {
           body: body
         })
         .then((res) => {
-          setUsers([...users, res.data]);
+          setPosts([...posts, res.data]);
           console.log(res.data);
         })
         .catch((error) => console.log(error));
@@ -60,5 +60,5 @@ import {
     );
   }
   
-  export default AddUserDialog;
+  export default AddPostDialog;
   

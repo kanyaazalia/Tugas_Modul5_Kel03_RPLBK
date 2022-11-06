@@ -9,13 +9,13 @@ import { List, Paper, Typography, IconButton } from "@mui/material";
 import Card from "./components/Card.js";
 
 import { AddCircle } from "@mui/icons-material";
-import AddUserDialog from "./components/AddUserDialog";
+import AddPostDialog from "./components/AddPostDialog";
 
 const BASE_API_URL = `https://jsonplaceholder.typicode.com`;
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [newUsers, setNewUsers] = useState([]);
+  const [newPosts, setNewPosts] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ function App() {
                 onDelete={() => handleDeletePost(d.id, idx)}
               />
             ))}
-            {newUsers.map((d, idx) => (
+            {newPosts.map((d, idx) => (
               <Card
               key={d.id}
               title={d.title}
@@ -96,11 +96,11 @@ function App() {
         </Paper>
       </div>
       {isDialogOpen && (
-        <AddUserDialog
+        <AddPostDialog
           open={isDialogOpen}
           onClose={closeDialog}
-          users={newUsers}
-          setUsers={setNewUsers}
+          Posts={newPosts}
+          setPosts={setNewPosts}
         />
       )}
     </div>
