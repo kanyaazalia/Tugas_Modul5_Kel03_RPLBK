@@ -13,7 +13,7 @@ function Card({ title, body, onDelete }) {
     return (
         <ListItem>
             <ListItemAvatar>
-                <Avatar alt="picture" src={"taion.jpg"} sx={{ width: 100, height: 100, margin: 2 }}/>
+                <Avatar alt="picture" src={"cewek.jpg"} sx={{ width: 100, height: 100, margin: 2 }}/>
             </ListItemAvatar>
             <ListItemText
                 primary={<Typography variant="h5">{title}</Typography>}
